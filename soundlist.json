@@ -1,0 +1,24 @@
+{
+    "soundlist": {
+        "0":{   
+            "name": "sfxtv",
+            "description":"English tv related sfx"
+        },        
+        "1":{   
+            "name": "sfxnl",
+            "description":"Nederlandstalige sfx"
+        },
+        "2":{   
+            "name": "sfxyt",
+            "description":"YouTube related sfx"
+        },
+        "3":{   
+            "name": "sfxsongs",
+            "description": "everything comming form a song "
+        },
+        "4":{   
+            "name": "fxgaming",
+            "description":"sounds relating to games"
+        }
+    }
+}
