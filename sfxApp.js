@@ -9,7 +9,6 @@ const prefix = config.prefix
 const botName = "Micro-SoundEffects";
 const botId = "#0002";
 var dispatcher = null;
-var voiceChannel = null;
 var playing = false;
 
 console.log('script is running');
@@ -68,6 +67,7 @@ function playCmdsfx(sfxname, message){
 function playSFX(messageReaction, arraynumber) {
 	let directory = "sfx/" + sfxObjects[arraynumber].name;
 	let voiceChannel = messageReaction.message.member.voice.channel;
+	if (voiceChannel == undefined){ console.log("no voice channel found");return;}
 	let found = false; let i = 0;
 	while (i < sfxObjects[arraynumber].sfxBtn.length && !found) 
 		{sfxObjects[arraynumber].sfxBtn[i] == messageReaction.emoji.name ? found = true : i ++}
