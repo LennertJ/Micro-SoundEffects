@@ -24,7 +24,7 @@ sfx toevoegen:
 		./_allsfx
 			./*.mp3
 		./class
-	
+			./*.mp3
 	./config.json
 	./package-lock.json
 	./sfxApp.js
