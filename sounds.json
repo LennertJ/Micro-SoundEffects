@@ -5,23 +5,25 @@
 		"sfxBtn": ["😆", "🥁", "◻", "❓", "😵",  "🍝", "🤐", "🤼"]
     },"1" : {
 	    "name": "nl",
-		"sfxName": ["agressie", "bassie","buurmanMol","danBelJijVrijdag", 
+		"sfxName": ["aaagh","agressie", "bassie","buurmanMol","danBelJijVrijdag", 
 			"helemaalMooi", "jijMotNietDenken(Short)", "mensuh", "metAstroTV", "pelDePindaIsOk", 
-			"stopMetSchreeuwen", "tututu", "vegen2", "waarZijnWeMeeBezig","watEenHeld"],
-		"sfxBtn": ["😡", "🎪","🐀", "🤙", 
+			"stopMetSchreeuwen", "tututu", "vegen2", "waarZijnWeMeeBezig","watEenHeld", "jaDusTOch" ],
+		"sfxBtn": ["😱","😡", "🎪","🐀", "🤙", 
 			"👌", "🤔", "👲", "🌠", "🥜", 
-			"😶", "📞", "🐴", "👪", "👑"]
+			"😶", "📞", "🐴", "👪", "👑", "😮"]
     }, "2" : {
 	    "name": "yt",
-		"sfxName": ["canYouDoThis", "communism", "getAHouse", "illuminati", "ILoveYou", "LeeroyJenkins", "noice", "reee", "yeet", "yaYeet2","stepbro"],
-		"sfxBtn": ["♿", "❤", "🏠", "🔺", "😭", "🗣", "👌", "😡", "👊", "✊", "📹"]
+		"sfxName": ["aaa","canYouDoThis", "communism", "getAHouse", "illuminati", "ILoveYou", "LeeroyJenkins", "noice", "reee", "yeet", "yaYeet2","stepbro","garbage","maastricht"],
+			"sfxBtn": [ "😱", "♿", "❤", "🏠", "🔺", "😭", "🗣", "👌", "😡", "👊", "✊", "📹", "♻️", "⬇️" ]
     }, "3": {
 	    "name": "songs",
-		"sfxName": ["babyShark","helloDarknessMyOldFriend", "lonely","mansNotHot","quickMaths", "rescueRangers", "sadViolin", "theThingGoesSkra"], 
-		"sfxBtn": ["🦈", "⬛", "😖", "🔥",  "➕", "🥜", "🎻", "🔫"]
+		"sfxName": ["7pillen", "babyShark", "ewa","helloDarknessMyOldFriend", "god", "lonely", "junk" ,"mansNotHot", "veel","quickMaths", 
+			"rescueRangers", "sadViolin", "theThingGoesSkra","koekeloer", "friends", "nogEen"], 
+		"sfxBtn": ["💊", "🦈", "💁‍♂️","⬛", "😇", "😖", "🔩", "🔥", "📷", "➕", 
+			"🥜", "🎻", "🔫","🍪", "🌝","☹️"]
     }, "4":{
 	    "name":"gaming",
-	    "sfxName": ["bemShockDodge", "onFire", "totalSkill"],
-        "sfxBtn": ["🌩", "🔥", "☣"]
+	    "sfxName": ["bemShockDodge", "onFire", "totalSkill", "djFuck"],
+        "sfxBtn": ["🌩", "🔥", "☣", "💾"]
     }
 }

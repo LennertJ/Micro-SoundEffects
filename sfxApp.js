@@ -1,5 +1,5 @@
 const discord = require('discord.js');
-const bot = new discord.Client();
+const bot = new discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const config = require("./config.json");
 const sfxObjects = require("./sounds.json")
 const cmds = require("./soundlist.json")
@@ -8,6 +8,7 @@ const prefix = config.prefix
 
 const botName = "Micro-SoundEffects";
 const botId = "#0002";
+let lock = false;
 var dispatcher = null;
 var playing = false;
 
@@ -23,9 +24,12 @@ bot.on("message", (message) =>{
 	var stringMessage = message.content.toLowerCase();
 
 	if (stringMessage === prefix + "sfx")				 	{message.reply( getAllcommands() );}
-	else if (stringMessage.startsWith( prefix + "sfx ")) 	{playCmdsfx(stringMessage.split(" ")[1],message);} 
+	else if (stringMessage.startsWith(prefix + "sfx " && lock)) 	{playCmdsfx(stringMessage.split(" ")[1],message);} 
 	else if (stringMessage.startsWith(prefix + "sfxkill")) 	{message.author.id === config.discordID ? console.log("shutting off!")  : message.channel.send(" You're not authorized ")}
-
+	else if (stringMessage.startsWith(prefix + "r")) 		{roll(stringMessage.split(" ")[1], message); }
+	else if (stringMessage.startsWith(prefix + "lock") 
+		&& message.member.user.id == config.discordID)	{lock = locks(message);}
+		
 	for(let i = 0; i < sfxcount; i++){
 		if(stringMessage.startsWith(prefix + cmds.soundlist[i].name)){
 			reactAllSFX(message, sfxObjects[i].sfxBtn);
@@ -33,10 +37,20 @@ bot.on("message", (message) =>{
 	}
 });
 
-bot.on('messageReactionAdd', (messageReaction, user)=>{
+bot.on('messageReactionAdd', async(messageReaction, user)=>{
+    if (messageReaction.partial) {//fetch old messages
+        try {
+            await messageReaction.fetch();
+        } catch (error) {
+            console.log('Something went wrong when fetching the message: ', error);
+            return;
+        }
+	}
 	stringMessage = messageReaction.message.content.toLowerCase();
 	if (!stringMessage.startsWith(prefix + "sfx")) return;
+	if (lock) return;
 	if (user.bot) return;
+	
 	if (playing) return;
 	playing = true;
 	try{
@@ -47,6 +61,16 @@ bot.on('messageReactionAdd', (messageReaction, user)=>{
 		playing = false;
 	}
 });
+
+function locks(message){
+    message.delete();
+    if (lock){
+        message.channel.send("🔓").then(msg => msg.delete({timeout: 3000})).catch(error => console.log(error));
+    } else{
+        message.channel.send("🔒").then(msg => msg.delete({timeout: 3000})).catch(error => console.log(error));
+	}
+	return !lock
+}
 
 function processSFXRequest(messageReaction,  stringMessage){
 	let i = 0;let found = false;
@@ -61,6 +85,7 @@ function playCmdsfx(sfxname, message){
 	let voiceChannel = message.member.voice.channel; let directory = "sfx/_allSfx";
 	voiceChannel.join().then(function (connection) {
 		dispatcher = connection.play(directory + "/"+ sfxname + ".mp3");
+		startautoDcTimeOut(100000, voiceChannel);
 	});
 }
 
@@ -74,9 +99,17 @@ function playSFX(messageReaction, arraynumber) {
 	if (found)	{
 		voiceChannel.join().then(function (connection) {
 			dispatcher = connection.play(directory + "/"+sfxObjects[arraynumber].sfxName[i] + ".mp3");
+			connection.voice.setSelfDeaf(true)
+			startautoDcTimeOut(100000, voiceChannel);
 		});
 	}
 }
+
+async function startautoDcTimeOut(duration, channelId) {
+	setTimeout(function(){	channelId.leave(); }, duration);
+}
+
+
 
 async function reactAllSFX(message, sfxArray){
 	for (var i = 0; i < sfxArray.length; i++) {
@@ -92,5 +125,4 @@ function getAllcommands(){
 	reactionstring += "```"
 	return reactionstring;
 }
-
 bot.login(config.token);
