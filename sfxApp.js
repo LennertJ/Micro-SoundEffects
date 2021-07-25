@@ -26,10 +26,7 @@ bot.on("message", (message) =>{
 	if (stringMessage === prefix + "sfx")				 	{message.reply( getAllcommands() );}
 	else if (stringMessage.startsWith(prefix + "sfx " && lock)) 	{playCmdsfx(stringMessage.split(" ")[1],message);} 
 	else if (stringMessage.startsWith(prefix + "sfxkill")) 	{message.author.id === config.discordID ? console.log("shutting off!")  : message.channel.send(" You're not authorized ")}
-	else if (stringMessage.startsWith(prefix + "r")) 		{roll(stringMessage.split(" ")[1], message); }
-	else if (stringMessage.startsWith(prefix + "lock") 
-		&& message.member.user.id == config.discordID)	{lock = locks(message);}
-		
+	else if (stringMessage.startsWith(prefix + "lock") && message.member.user.id == config.discordID)	{lock = locks(message);}
 	for(let i = 0; i < sfxcount; i++){
 		if(stringMessage.startsWith(prefix + cmds.soundlist[i].name)){
 			reactAllSFX(message, sfxObjects[i].sfxBtn);
