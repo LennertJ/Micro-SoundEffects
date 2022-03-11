@@ -1,0 +1,6 @@
+{
+    "selfDeaf" : false,
+    "directory": "./sfx/",
+    "listeningTo": "development",
+    "isProduction":false
+}

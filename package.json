@@ -1,0 +1,20 @@
+{
+  "name": "micro-soundeffects-master",
+  "version": "1.0.0",
+  "description": "ONLY ONCE: \r \t- download node.js\r CODE RUNNEN\r \t- navigeer naar de map waar sfxApp.js staat\r \t- shift+right-click in de map\r \t- selecteer open powershell op deze locatie \r \t- (je kunt ook via powershell naar deze map navigeren)\r \t- geef in node sfxApp.js (niet hoofdlettergevoelig)",
+  "main": "sfxApp.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "discord.js-pagination": "^1.0.3",
+    "fs": "^0.0.1-security",
+    "ffmpeg-static": "^4.4.0",
+    "get-audio-duration": "^3.0.0",
+    "globby": "^12.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
