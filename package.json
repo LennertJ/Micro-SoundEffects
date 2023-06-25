@@ -4,7 +4,7 @@
   "description": "ONLY ONCE: \r \t- download node.js\r CODE RUNNEN\r \t- navigeer naar de map waar sfxApp.js staat\r \t- shift+right-click in de map\r \t- selecteer open powershell op deze locatie \r \t- (je kunt ook via powershell naar deze map navigeren)\r \t- geef in node sfxApp.js (niet hoofdlettergevoelig)",
   "main": "sfxApp.js",
   "dependencies": {
-    "discord.js": "^12.5.3",
+    "discord.js": "^14.11.0",
     "discord.js-pagination": "^1.0.3",
     "fs": "^0.0.1-security",
     "ffmpeg-static": "^4.4.0",
