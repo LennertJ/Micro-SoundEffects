@@ -1,0 +1,6 @@
+{
+    "selfDeaf": true,
+    "directory": "./sfx/",
+    "listeningTo": "silly SoundEffects",
+    "isProduction": true
+}
